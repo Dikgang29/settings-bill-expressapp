@@ -11,23 +11,7 @@ describe('settings-bill', function(){
         assert.equal(1, settingsBill.actionsFor('call').length);
     });
 
-    it('should be able to set the settings', function(){
-        settingsBill.setSettings({
-            smsCost: 2.35,
-            callCost: 3.35,
-            warningLevel: 30,
-            criticalLevel: 40
-        });
-
-        assert.deepEqual({
-            smsCost: 2.35,
-            callCost: 3.35,
-            warningLevel: 30,
-            criticalLevel: 40
-        }, settingsBill.getSettings())
-
-
-    });
+  
 
     it('should calculate the right totals', function(){
         const settingsBill = SettingsBill();
