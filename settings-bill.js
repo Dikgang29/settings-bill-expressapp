@@ -88,20 +88,28 @@ module.exports = function SettingsBill() {
     
         if (action === 'sms'){
             cost = smsCost;
+            actionList.push({
+                type: action,
+                cost,
+                currentDate : new Date(),
+                timestamp: new Date()
+            });
         }
         else if (action === 'call'){
             cost = callCost;
+            actionList.push({
+                type: action,
+                cost,
+                currentDate : new Date(),
+                timestamp: new Date()
+            });
         }
         else if(action != 'sms' && action!= 'call'){
             //returns nothing if sms and call is not checked
             return
         }
 
-        actionList.push({
-            type: action,
-            cost,
-            timestamp: new Date()
-        });
+      
     }
 
 
@@ -140,12 +148,7 @@ module.exports = function SettingsBill() {
         }
         return total;
 
-        // the short way using reduce and arrow functions
-
-        // return actionList.reduce((total, action) => { 
-        //     let val = action.type === type ? action.cost : 0;
-        //     return total + val;
-        // }, 0);
+      
     }
 
     return {

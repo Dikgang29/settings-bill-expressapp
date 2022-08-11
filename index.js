@@ -53,7 +53,8 @@ app.get('/actions', (req,res)=>{
     
     for (const actionListObj of settingsBill.actions()){
 
-        actionListObj.timestamp = moment().fromNow();
+        let theDate = actionListObj.currentDate;
+        actionListObj.timestamp = moment(theDate).fromNow();
     }
     
 
@@ -65,7 +66,9 @@ app.get('/actions/:actionType', (req,res)=>{
 
     for (const actionListObj of settingsBill.actions()){
 
-        actionListObj.timestamp = moment().fromNow();
+        let theDate = actionListObj.currentDate;
+
+        actionListObj.timestamp = moment(theDate).fromNow();
     }
     const actionType = req.params.actionType;
 
